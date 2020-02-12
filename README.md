@@ -1,47 +1,149 @@
-# 事中风控(1): 背景和业务介绍
+# 事中风控(2): Phoenix工程搭建
 ## 前言
-本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分4篇文章介绍，本篇主要分析业务场景，梳理清楚服务职责。
+本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分4篇文章介绍，本篇主要介绍如何搭建一个phoenix工程，以及工程内各个模块和包的介绍。
 
 - 第一篇：背景和业务介绍
 - 第二篇：phoenix工程搭建
-- 第三篇：业务代码编写与测试
-- 第四篇：前端业务代码编写
+- 第三篇：消息流分析与定义
+- 第四篇：业务代码编写与测试
+- 第五篇：前端业务代码编写
 
-## 背景描述
+## 工程搭建
+搭建Phoenix工程十分容易，可以使用下述命令即可生成一个完整的phoenix的maven工程。
 
-目前金融资管一般都是把风控做到指令流程当中，这样严重依赖原本的指令系统。实际上如果可以做到超级实时的风控计算，即便是事中计算，也是可以做到很大程度的风险控制效果。当然风控的实时计算依赖很多状态数据，比如产品估值，产品头寸等，如果采用传统的面向数据库管理状态无法做到很好的实时性。
+``` shell
+mvn -X archetype:generate \
+ -DarchetypeGroupId=com.iquantex \
+ -DarchetypeArtifactId=phoenix-archetype \
+ -DarchetypeVersion=dev-SNAPSHOT \
+ -Dversion=1.0-SNAPSHOT \
+ -DgroupId=com.iquantex.phoenix.risk \
+ -DartifactId=phoenix-risk \
+ -DinteractiveMode=false
+```
 
-Phoenix是内存编程框架，很适合解决此类问题，下面选用`投资计划有效性`风控条款，分析条款规则和业务流程。
+生成成功后效果图如下
+``` shell
+Initialized empty Git repository in /Users/baozi/workspace/quantex/back/phoenix-risk/phoenix-risk/.git/
+       _                       _
+      | |                     (_)
+ ____ | |__   ___  _____ ____  _ _   _
+|  _ \|  _ \ / _ \| ___ |  _ \| ( \ / )
+| |_| | | | | |_| | ____| | | | |) X (
+|  __/|_| |_|\___/|_____)_| |_|_(_/ \_)
+|_|         Phoenix:(2.1.1)
+[INFO] Project created from Archetype in dir: /Users/baozi/workspace/quantex/back/phoenix-risk/phoenix-risk
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.965 s
+[INFO] Finished at: 2020-02-12T14:24:26+08:00
+[INFO] ------------------------------------------------------------------------
+
+```
+
+## 模块介绍
+Phoenix开发工程奔着模块自治的思想，把分为了三个子Module，依赖关系如下:
+```shell
+                   +----------------+
+                   |   application  |
+                   +-----+----+-----+
+                         |    |
+                 +-------+    +------+
+                 |                   |
+          +------v-----+     +-------v-------+
+          |    domain  <-----+  coreapi      |
+          +------+-----+     +-------+-------+
+```
+
+### application - 启动模块
+应用的顶层模块，启动模块，入口模块，包括：
+- SpringBoot启动类，启动配置等
+- 用户交互层（Web、RESTFul API）
+
+``` shell
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com.iquantex.phoenix.risk
+    │   │       ├── PhoenixriskApplication.java   # spring启动类
+    │   │       ├── controller
+    │   │       │   ├── HelloController.java      # 交互层类 
+    │   │       └── runner
+    │   │           └── Runner.java               # phoenix启动类
+    │   └── resources
+    │       ├── application.yaml                  # 配置文件
+    │       ├── logback.xml                       # 日志配置
+```
+
+### coreapi - 消息定义模块
+应用的消息定义模块，包括：
+- cmd:   聚合根入口命令
+- event: 聚合根处理后事件
+
+```shell
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com.iquantex.phoenix.risk.coreapi
+    │   │       ├── Hello.java     # 消息定义(命令和事件)
+    │   │       └── description.md
+    │   └── resources
+    │   │       └── Hello.proto    # protobuf定义
+
+```
 
 
-## 投资计划有效性
+### domain - 领域模块
+phoenix业务领域核心模块，包括：
+- 聚合根： 核心业务领域聚合根，处理core中的命令并返回事件
+- 聚合根测试：针对聚合根的完整测试
+- 依赖服务： 聚合根计算过程中依赖的服务逻辑
 
-### 规则描述
+``` shell
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com.iquantex.phoenix.risk
+    │   │     └── domain
+    │   │         ├── entity                       # 聚合实体定义包
+    │   │         │   ├── HelloAggregate.java      # 聚合根定义(特殊的实体)
+    │   │         │   └── description.md          
+    │   │         └── service
+    │   │             └── description.md
+    │   └── resources
+    └── test
+        ├── java.com.iquantex.phoenix.risk
+        │    └── domain
+        │        └── HelloAggregateTest.java       # 聚合根测试
+```
 
-`投资计划有效性`条款监控在每次指令下达时触发，主要监控该笔指令下的股票未来持仓占用总资产的比例，超过一定阈值则告警。业务范围这里简化只涉及沪深交易所的A股股票交易。
+### tools - 工具包
+包含常用的工具脚本
 
-### 规则解析
+```shell 
+.
+├── build-restart  # 便捷打包重启脚本
+├── gen_proto      # protobuf生成脚本
+└── maven-deploy   # 便捷发布coreapi脚本
+```
 
-（（在途数量 + 持仓数量） *   证券行情报价 + 指令金额 ） /  净资产  > 阈值    告警
+## 运行演示
+1. 运行：`sh tools/build-restart`
 
-持仓分为：持仓数量 (不区分冻结和可用)， 在途数量（指令买入未成交数量）
+2. 执行请求
+``` shell
+➜  ~ curl -X PUT http://127.0.0.1:8080/hello/H001
+success
+```
 
-根据规则可以看出，风控服务需要实时维护`持仓数量`,`在途数量`和`产品净资产`状态。`实时行情`本案例先简单模拟，下面对涉及到的状态维护和业务流程做详细解析。
-
-
-### 交易流程 
-针对`投资计划有效性`规则内容，分析简化为下面业务流程
-1. 股票买指令： 持仓数量不变，在途数量+，计算风控
-2. 股票卖指令： 持仓数量不变
-3. 股票买成交： 在途数量-，持仓数量+
-4. 股票卖成交： 持仓数量-
-5. 净资产变更： 净资产覆盖变更
-
-## 架构设计
-本案例是使用phoenix开发微服务，微服务本身会包含简单的下单页面，以及后端处理逻辑。同时也可以再phoenix-admin上查看事件上下文。
-
-![001](./doc/image/01.png)
+3. 查看日志
+``` shell
+INFO 80357 --- [t-dispatcher-17] [c.i.p.b.domain.entity.HelloAggregate       33] : Hello World Phoenix...
+```
 
 ## 结尾
-
-本篇文档从背景介绍，业务分析讲述了事中风控微服务的前提，下面将从pheonix服务搭建开始，一步一步完善文中条款计算功能。
+本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个一个可运行的phoenix工程，下篇我们将使用该工程构建我们的风控案例。
