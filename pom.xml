@@ -20,6 +20,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!--组件版本-->
+        <commons.math3.version>3.6.1</commons.math3.version>
+        <taobao.express.version>3.0.19</taobao.express.version>
         <swagger2.version>2.6.1</swagger2.version>
         <lombook.version>1.16.20</lombook.version>
         <proto.version>3.4.0</proto.version>
@@ -59,6 +61,11 @@
 
             <!--tools-->
             <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math3</artifactId>
+                <version>${commons.math3.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombook.version}</version>
@@ -77,6 +84,11 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.iquantex</groupId>
+                <artifactId>taobao-express</artifactId>
+                <version>${taobao.express.version}</version>
             </dependency>
 
         </dependencies>

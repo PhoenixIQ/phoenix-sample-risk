@@ -27,6 +27,18 @@
             <groupId>com.iquantex</groupId>
             <artifactId>phoenix-client-starter</artifactId>
         </dependency>
+
+        <!--tools-->
+        <dependency>
+            <groupId>com.iquantex</groupId>
+            <artifactId>taobao-express</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+
     </dependencies>
 
 
