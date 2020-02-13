@@ -51,6 +51,78 @@
    产品净资产                    产品聚合根         产品净资产变更事件 
 ```
 
+## 消息流定义
+根据上述消息流分析，我们可以再`coreapi`定义`cmd`和`event`。phoenix支持protobuf和java序列化协议，这里选用java序列化。下面分别展示指令、成交、净资产下消息内容。
+
+- 指令信息
+``` java
+@Data
+public class StockInstInfo implements Serializable {
+
+	/** 指令编码 */
+	private String instCode;
+
+	/** 产品编码 */
+	private String fundCode;
+
+	/** 证券编码 */
+	private String secuCode;
+
+	/** 指令数量 */
+	private long qty;
+
+	/** 指令金额 */
+	private double amt;
+
+	/** 委托方向 */
+	private TradeType tradeTypeCode;
+
+}
+```
+
+- 成交信息
+``` java
+@Data
+public class StockExecutionInfo implements Serializable {
+
+	/** 指令编码 */
+	private String instCode;
+
+	/** 成交编码 */
+	private String executionCode;
+
+	/** 产品编码 */
+	private String fundCode;
+
+	/** 证券编码 */
+	private String secuCode;
+
+	/** 成交数量 */
+	private long qty;
+
+	/** 成交价格 */
+	private long price;
+
+	/** 委托方向 */
+	private TradeType tradeTypeCode;
+
+}
+```
+
+- 净资产信息
+``` java
+@Data
+public class FundAssetsCmd implements Serializable {
+
+	/** 产品编码 */
+	private String fundCode;
+
+	/** 净资产 */
+	private double netAssets;
+
+}
+```
+
 
 ## 结尾
-本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个一个可运行的phoenix工程，下篇我们将使用该工程构建我们的风控案例。
+本文分析了事中风控系统所接受的消息流，根据消息流的我们可以看出系统的处理能力边界。下篇讲讲述怎样使用phoenix开发响应消息的逻辑。
