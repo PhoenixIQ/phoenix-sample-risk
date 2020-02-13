@@ -78,6 +78,7 @@ public class StockInstInfo implements Serializable {
 	private TradeType tradeTypeCode;
 
 }
+ 
 ```
 
 - 成交信息
