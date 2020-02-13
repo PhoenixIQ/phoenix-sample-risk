@@ -81,6 +81,7 @@ public class StockInstInfo implements Serializable {
 ```
 
 - 成交信息
+
 ``` java
 @Data
 public class StockExecutionInfo implements Serializable {
