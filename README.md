@@ -54,8 +54,8 @@
 ## 消息流定义
 根据上述消息流分析，我们可以再`coreapi`定义`cmd`和`event`。phoenix支持protobuf和java序列化协议，这里选用java序列化。下面分别展示指令、成交、净资产下消息内容。
 
-- 指令信息
-``` java
+### 指令信息
+``` 
 @Data
 public class StockInstInfo implements Serializable {
 
@@ -81,9 +81,9 @@ public class StockInstInfo implements Serializable {
  
 ```
 
-- 成交信息
+### 成交信息
 
-``` java
+``` 
 @Data
 public class StockExecutionInfo implements Serializable {
 
@@ -112,8 +112,8 @@ public class StockExecutionInfo implements Serializable {
 
 ```
 
-- 净资产信息
-``` java
+### 净资产信息
+``` 
 @Data
 public class FundAssetsCmd implements Serializable {
 
