@@ -109,6 +109,7 @@ public class StockExecutionInfo implements Serializable {
 	private TradeType tradeTypeCode;
 
 }
+
 ```
 
 - 净资产信息
@@ -123,6 +124,7 @@ public class FundAssetsCmd implements Serializable {
 	private double netAssets;
 
 }
+
 ```
 
 
