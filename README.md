@@ -1,6 +1,6 @@
 # 事中风控(3): 领域设计与消息定义
 ## 前言
-本篇是使用phoenix开发高性能事中风控服务系列第三篇，该系列一共分四篇文章介绍。本篇将使用领域驱动设计方法提取领域对象，同时定义完领域消息。
+本篇是使用phoenix开发高性能事中风控服务系列第三篇，该系列一共分为五篇文章介绍。本篇将使用领域驱动设计方法提取领域对象，同时定义完领域消息。
 
 - 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
 - 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
