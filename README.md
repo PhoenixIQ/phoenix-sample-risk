@@ -1,79 +1,17 @@
-# 事中风控(4): 领域对象定义
-## 前言
-本篇是使用phoenix开发高性能事中风控服务系列第五篇，该系列一共分五篇文章介绍。前面几篇已经完成了事中风控的服务端开发，本篇将增加客户端调用和前端页面使完整程度更高。为了方便，将客户端也集成入该服务当中。
+# Phoenix案例-高性能事中风控微服务
 
-- 第一篇：背景和业务介绍
-- 第二篇：phoenix工程搭建
-- 第三篇：领域设计与消息定义
-- 第四篇：领域对象定义
-- 第五篇：客户端代码编写
+本仓库讲述怎样使用Phoenix框架开发高性能的事中风控微服务，一共分为几个小节，从业务背景到代码落地，全面的讲述使用Phoenix开发的流程。
+
+每个部分都有该小节的`代码`，体现在此仓库中的一个代码分支，以显示该部分中所作的更改。因此，如果您对指南的第一部分感兴趣可以切到分支`part-1`。该分支中的`README.md`详细讲解了该分支所做的内容。如果您想体验运行完成的成品，请看`master`分支。
 
 
-## 增加路由
-Phoenix是消息驱动的微服务框架，为了达到服务间通信，需要依赖一份路由表，现在还不支持注册中心，需要手动在配置文件中配置路由表信息。
+|Part|介绍|分支名|视频|
+|---|---|---|---|
+|1|背景和业务介绍|[part-1](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)|todo|
+|2|phoenix工程搭建|[part-2](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)|todo|
+|3|领域设计与消息定义|[part-3](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)|todo|
+|4|领域对象定义|[part-4](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)|todo|
+|5|客户端代码编写|[part-5](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)|todo|
 
-```yml
-quantex:
-  phoenix:
-    routers:
-      - message: com.iquantex.phoenix.risk.api.execution.StockExecutionCmd
-        dst: phoenix-risk/EA/Risk
-      - message: com.iquantex.phoenix.risk.api.inst.StockInstCmd
-        dst: phoenix-risk/EA/Risk
-      - message: com.iquantex.phoenix.risk.api.fund.FundAssetsCmd
-        dst: phoenix-risk/EA/Risk
-```
+如果您在学习过程中有遇到问题或者对phoenix感兴趣，请联系：`baodi.shi@iquantex.com`
 
-
-## 客户端编写
-
-Phoenix是消息驱动框架，一切都是消息通信。为了与前端交互方便，可以再`application`模块中增加发送消息的`Controller`。`Controller`可以接受页面请求，转换为`命令`发送给phoenix服务端。
-
-示例代码
-```java
-@Slf4j
-@RestController
-@RequestMapping("/funds")
-public class TradeController {
-
-	@Autowired
-	private PhoenixClient client;
-
-	/**
-	 * 模拟指令
-	 * @return
-	 */
-	@PostMapping("/inst")
-	public String inst(@RequestBody StockInstInfo stockInstInfo) {
-
-		StockInstCmd cmd = new StockInstCmd();
-		cmd.setFundCode(stockInstInfo.getFundCode());
-		cmd.setStockInstInfo(stockInstInfo);
-
-		Future<RpcResult> future = client.send(cmd, "");
-		try {
-			RpcResult result = future.get(10, TimeUnit.SECONDS);
-			return result.getMessage();
-		}
-		catch (InterruptedException | ExecutionException | TimeoutException e) {
-			return "rpc error: " + e.getMessage();
-		}
-	}
-}
-
-```
-
-
-## 运行启动
-> 运行启动前，还需要增加一些简单的`html`方便查看效果，请看源代码中`resources/static`。
-
-1. 执行脚本: `sh tools/build-restart`
-2. 打开浏览器: `http://127.0.0.1:8080`
-3. 查看效果，左边可以下指令、成交，右边表格可以查看实时状态和风控计算结果
-![](./doc/image/01.png)
-
-
-
-
-## 结尾
-本文以事中风控的客户端为例，展示了Phoenix的客户端编写方式。到此位置，整个使用pheonix开发事中风控微服务全部结束。可以看出来Phoenix作为微服务框架加上DDD的设计思想可以很好的拆分业务，再通过面向内存的编程模型很容易落地实现。
