@@ -2,11 +2,11 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第三篇，该系列一共分四篇文章介绍。本篇将使用领域驱动设计方法提取领域对象，同时定义完领域消息。
 
-- 第一篇：背景和业务介绍
-- 第二篇：phoenix工程搭建
-- 第三篇：领域设计与消息定义
-- 第四篇：领域对象定义
-- 第五篇：客户端代码编写
+- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
+- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
+- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
+- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
+- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
 
 
 ## 领域设计
