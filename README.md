@@ -1,6 +1,6 @@
 # 事中风控(2): Phoenix工程搭建
 ## 前言
-本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分4篇文章介绍，本篇主要介绍如何搭建一个phoenix工程，以及工程内各个模块和包的介绍。
+本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分为五篇文章介绍，本篇主要介绍如何搭建一个phoenix工程，以及工程内各个模块和包的介绍。
 
 - 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
 - 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
