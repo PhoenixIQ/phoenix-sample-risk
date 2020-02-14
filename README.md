@@ -1,6 +1,6 @@
 # 事中风控(1): 背景和业务介绍
 ## 前言
-本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分4篇文章介绍，本篇主要分析业务场景，梳理清楚服务职责。
+本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分为五篇文章介绍，本篇主要讲述了背景，分析了业务场景，梳理清楚业务领域。
 
 - 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
 - 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
