@@ -133,6 +133,17 @@ public class FundAggregate implements Serializable {
 	 * @return
 	 */
 	public void on(StockInstFailEvent event) {
+		StockInstInfo stockInstInfo = event.getStockInstInfo();
+		// 如果是买指令，增加在途
+		if (stockInstInfo.getTradeTypeCode() == TradeType.BUY) {
+			Position position = positions.get(stockInstInfo.getSecuCode());
+			if (position == null) {
+				position = new Position();
+				position.setSecuCode(stockInstInfo.getSecuCode());
+				positions.put(stockInstInfo.getSecuCode(), position);
+			}
+			position.addTransitQty(stockInstInfo.getQty());
+		}
 	    failInstNumber++;
 	}
 
