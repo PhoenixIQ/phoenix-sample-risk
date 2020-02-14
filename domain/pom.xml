@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>phoenix-risk</artifactId>
+        <groupId>com.iquantex.phoenix.risk</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>phoenix-risk.domain</artifactId>
+
+    <dependencies>
+        <!--内部依赖-->
+        <dependency>
+            <groupId>com.iquantex.phoenix.risk</groupId>
+            <artifactId>phoenix-risk.coreapi</artifactId>
+        </dependency>
+
+        <!--phoenix-->
+        <dependency>
+            <groupId>com.iquantex</groupId>
+            <artifactId>phoenix-server-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.iquantex</groupId>
+            <artifactId>phoenix-client-starter</artifactId>
+        </dependency>
+
+        <!--tools-->
+        <dependency>
+            <groupId>com.iquantex</groupId>
+            <artifactId>taobao-express</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
