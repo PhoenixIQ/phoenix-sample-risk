@@ -2,11 +2,11 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分4篇文章介绍，本篇主要介绍如何搭建一个phoenix工程，以及工程内各个模块和包的介绍。
 
-- 第一篇：背景和业务介绍
-- 第二篇：phoenix工程搭建
-- 第三篇：领域设计与消息定义
-- 第四篇：领域对象定义
-- 第五篇：客户端代码编写
+- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
+- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
+- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
+- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
+- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
 
 ## 工程搭建
 搭建Phoenix工程十分容易，可以使用下述命令即可生成一个完整的phoenix的maven工程。
@@ -146,4 +146,4 @@ INFO 80357 --- [t-dispatcher-17] [c.i.p.b.domain.entity.HelloAggregate       33]
 ```
 
 ## 结尾
-本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个一个可运行的phoenix工程，下篇我们将使用该工程构建我们的风控案例。
+本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个一个可运行的phoenix工程，下篇我们将使用该工程从领域设计到代码落地完善工程。
