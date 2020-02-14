@@ -24,6 +24,12 @@ quantex:
     routers:
       - message: com.iquantex.phoenix.risk.coreapi.Hello$HelloCmd
         dst: phoenix-risk/EA/Hello
+      - message: com.iquantex.phoenix.risk.coreapi.execution.StockExecutionCmd
+        dst: phoenix-risk/EA/Risk
+      - message: com.iquantex.phoenix.risk.coreapi.inst.StockInstCmd
+        dst: phoenix-risk/EA/Risk
+      - message: com.iquantex.phoenix.risk.coreapi.fund.FundAssetsCmd
+        dst: phoenix-risk/EA/Risk
     server:
       name: ${spring.application.name}
       mq:

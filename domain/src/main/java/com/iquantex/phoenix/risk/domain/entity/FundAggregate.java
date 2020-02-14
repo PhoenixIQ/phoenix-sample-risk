@@ -144,7 +144,7 @@ public class FundAggregate implements Serializable {
 			}
 			position.addTransitQty(stockInstInfo.getQty());
 		}
-	    failInstNumber++;
+		failInstNumber++;
 	}
 
 	/**

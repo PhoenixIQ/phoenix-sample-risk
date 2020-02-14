@@ -1,0 +1,176 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>事中风控页面</title>
+    <style>
+        #a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            margin-top: 50px;
+            margin-left: 75px;
+            width: 250px;
+            text-align: left;
+
+        }
+
+        #b {
+            margin-left: 400px;
+            height: 100%;
+        }
+
+        .formDiv {
+            text-align: right;
+            margin-right: 38px;
+            margin-top: 2px;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="a">
+    <div id="a1">
+        <p class="title"><b>产品总览</b></p>
+        自动刷新：
+        开<input type="radio" name="refreshRadio" value="open">
+        关<input type="radio" name="refreshRadio" value="close" checked>
+        <button style="text-align: right" onclick="getHtmlTable()">刷新</button>
+        <br/><br/>
+    </div>
+    <br/><br/>
+
+    <div id="a2">
+        <p class="title"><b>产品创建</b></p>
+        <form name="fundForm" action="">
+            产品编码：<input type="text" name="fundCode" value="F001"><br/>
+            产品资产：<input type="text" name="fundNetAssets" value="10000000"><br/>
+            <div class="formDiv">
+                <button id="fundButton" type="button" style="width: 40px" onclick="fundCreate()">创建</button>
+            </div>
+        </form>
+    </div>
+    <br/><br/>
+
+    <div id="a3">
+        <p class="title"><b>指令创建</b></p>
+        <form name="instForm" action="">
+            指令编码：<input type="text" name="instCode" value="INST001"><br/>
+            产品编码：<input type="text" name="fundCode" value="F001"><br/>
+            指令金额：<input type="text" name="instAmt" value="1064000"><br/>
+            指令数量：<input type="text" name="instQty" value="10"><br/>
+            证券编码：<input type="text" name="secuCode" value="600519.SH"><br/>
+            交易方向：<input type="text" name="tradeType" value="BUY"><br/>
+            <div class="formDiv">
+                <button id="instButton" type="button" style="width: 40px" onclick="instCreate()">创建</button>
+            </div>
+        </form>
+    </div>
+    <br/><br/>
+
+    <div id="a4">
+        <p class="title"><b>成交创建</b></p>
+        <form name="execForm" action="">
+            指令编码：<input type="text" name="instCode" value="INST001"><br/>
+            成交编码：<input type="text" name="execCode" value="EXEC001"><br/>
+            产品编码：<input type="text" name="fundCode" value="F001"><br/>
+            成交价格：<input type="text" name="execPrice" value="10670"><br/>
+            成交数量：<input type="text" name="execQty" value="10"><br/>
+            证券编码：<input type="text" name="secuCode" value="600519.SH"><br/>
+            交易方向：<input type="text" name="tradeType" value="BUY"><br/>
+            <div class="formDiv">
+                <button id="execButton" type="button" style="width: 40px" onclick="execCreate()">创建</button>
+            </div>
+        </form>
+    </div>
+    <br/><br/>
+
+</div>
+<br/><br/>
+
+
+<div id="b" style=font-size:12px>
+
+</div>
+<script src="axios/axios.js"></script>
+<script src="jq/jquery.js"></script>
+<script type="text/javascript">
+
+    var dt;
+
+    window.onload = stopInterval();
+
+    $('input:radio[name="refreshRadio"]').click(function () {
+        var checkValue = $('input:radio[name="refreshRadio"]:checked').val();
+        if (checkValue == "open") {
+            openInterval();
+        } else {
+            stopInterval();
+        }
+    });
+
+    function openInterval() {
+        dt = setInterval(function () {
+            getHtmlTable()
+        }, 2000);
+    }
+
+    function stopInterval() {
+        clearInterval(dt)
+    }
+
+    function getHtmlTable() {
+        axios.get("/funds")
+            .then(function (response) {
+                console.log(response.data);
+                $("#b").html(response.data);
+            })
+    }
+
+    function fundCreate() {
+        var fundCode = fundForm.fundCode.value;
+        var fundNetAssets = fundForm.fundNetAssets.value;
+        axios.post("/funds/fund_assets", {
+            "fundCode": fundCode,
+            "netAssets": fundNetAssets
+        }).then(function (response) {
+            alert(response.data)
+        })
+    }
+
+    function instCreate() {
+        axios.post("/funds/inst", {
+            "instCode": instForm.instCode.value,
+            "fundCode": instForm.fundCode.value,
+            "amt": instForm.instAmt.value,
+            "qty": instForm.instQty.value,
+            "secuCode": instForm.secuCode.value,
+            "tradeTypeCode": instForm.tradeType.value
+        }).then(function (response) {
+            alert(response.data)
+        })
+    }
+
+    function execCreate() {
+        axios.post("/funds/execution", {
+            "instCode": execForm.instCode.value,
+            "executionCode": execForm.execCode.value,
+            "fundCode": execForm.fundCode.value,
+            "price": execForm.execPrice.value,
+            "qty": execForm.execQty.value,
+            "secuCode": execForm.secuCode.value,
+            "tradeTypeCode": execForm.tradeType.value
+        }).then(function (response) {
+            alert(response.data)
+        })
+    }
+
+
+</script>
+</body>
+</html>
+
