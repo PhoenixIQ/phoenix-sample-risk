@@ -9,10 +9,10 @@
 - 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
 
 ## 工程搭建
-搭建Phoenix工程十分容易，可以使用下述命令即可生成一个完整的phoenix的maven工程。
+搭建Phoenix工程十分容易，可以使用下述命令即可生成一个完整的phoenix的maven工程。其中`DarchetypeVersion`为phoenix的版本，`groupId`、`artifactId`、`version`为生成工程的定义。
 
 ``` shell
-mvn -X archetype:generate \
+mvn archetype:generate \
  -DarchetypeGroupId=com.iquantex \
  -DarchetypeArtifactId=phoenix-archetype \
  -DarchetypeVersion=dev-SNAPSHOT \
@@ -146,4 +146,4 @@ INFO 80357 --- [t-dispatcher-17] [c.i.p.b.domain.entity.HelloAggregate       33]
 ```
 
 ## 结尾
-本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个一个可运行的phoenix工程，下篇我们将使用该工程从领域设计到代码落地完善工程。
+本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个可运行的phoenix工程，下篇我们将使用该工程构建我们的风控案例。
