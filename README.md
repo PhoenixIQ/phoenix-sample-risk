@@ -220,4 +220,4 @@ public class FundAssetsEvent implements Serializable {
 ```
 
 ## 结尾
-本文分析了通过领域驱动设计的方式提取出了领域对象，同时定义了领域的消息。下篇讲述怎样使用phoenix开发聚合根和实体。
+本文通过领域驱动设计的方式提取出了领域对象，同时定义了领域的消息。下篇讲述怎样使用phoenix开发聚合根和实体。
