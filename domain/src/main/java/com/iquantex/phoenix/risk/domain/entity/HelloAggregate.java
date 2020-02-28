@@ -1,10 +1,10 @@
 package com.iquantex.phoenix.risk.domain.entity;
 
 import com.iquantex.phoenix.risk.coreapi.Hello;
-import com.iquantex.phoenix.server.aggregate.entity.ActReturn;
 import com.iquantex.phoenix.server.aggregate.entity.AggregateRootIdAnnotation;
 import com.iquantex.phoenix.server.aggregate.entity.EntityAggregateAnnotation;
-import com.iquantex.phoenix.server.aggregate.entity.RetCode;
+import com.iquantex.phoenix.server.aggregate.model.ActReturn;
+import com.iquantex.phoenix.server.aggregate.model.RetCode;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,9 +31,8 @@ public class HelloAggregate implements Serializable {
 	@AggregateRootIdAnnotation(aggregateRootId = "helloId")
 	public ActReturn act(Hello.HelloCmd cmd) {
 		log.info("Hello World Phoenix...");
-		return ActReturn
-				.builder(RetCode.SUCCESS, "success", Hello.HelloEvent.newBuilder().setHelloId(cmd.getHelloId()).build())
-				.build();
+		return ActReturn.builder().retCode(RetCode.SUCCESS).retMessage("success")
+				.event(Hello.HelloEvent.newBuilder().setHelloId(cmd.getHelloId()).build()).build();
 	}
 
 	/**
