@@ -13,10 +13,10 @@ import com.iquantex.phoenix.risk.coreapi.inst.StockInstPassEvent;
 import com.iquantex.phoenix.risk.domain.service.RuleReq;
 import com.iquantex.phoenix.risk.domain.service.RuleResp;
 import com.iquantex.phoenix.risk.domain.service.RuleService;
-import com.iquantex.phoenix.server.aggregate.entity.ActReturn;
 import com.iquantex.phoenix.server.aggregate.entity.AggregateRootIdAnnotation;
 import com.iquantex.phoenix.server.aggregate.entity.EntityAggregateAnnotation;
-import com.iquantex.phoenix.server.aggregate.entity.RetCode;
+import com.iquantex.phoenix.server.aggregate.model.ActReturn;
+import com.iquantex.phoenix.server.aggregate.model.RetCode;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -56,9 +56,8 @@ public class FundAggregate implements Serializable {
 	 */
 	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
 	public ActReturn act(FundAssetsCmd cmd) {
-		return ActReturn
-				.builder(RetCode.SUCCESS, "产品创建成功",
-						FundAssetsEvent.builder().fundCode(cmd.getFundCode()).netAssets(cmd.getNetAssets()).build())
+		return ActReturn.builder().retCode(RetCode.SUCCESS).retMessage("产品创建成功")
+				.event(FundAssetsEvent.builder().fundCode(cmd.getFundCode()).netAssets(cmd.getNetAssets()).build())
 				.build();
 	}
 
@@ -94,15 +93,16 @@ public class FundAggregate implements Serializable {
 
 		// 2. 构造风控结果
 		if (result.getRuleResultCode() == RuleResp.RuleResultCode.FAIL) {
-			return ActReturn.builder(RetCode.FAIL, "指令创建失败,因子详情" + result.getRuleResultMessage(),
-					StockInstFailEvent.builder().fundCode(cmd.getFundCode()).stockInstInfo(cmd.getStockInstInfo())
-							.riskResult(result.getRuleResultMessage()).build())
+			return ActReturn.builder().retCode(RetCode.FAIL).retMessage("指令创建失败,因子详情" + result.getRuleResultMessage())
+					.event(StockInstFailEvent.builder().fundCode(cmd.getFundCode())
+							.stockInstInfo(cmd.getStockInstInfo()).riskResult(result.getRuleResultMessage()).build())
 					.build();
 		}
 		else {
-			return ActReturn.builder(RetCode.SUCCESS, "指令创建成功,因子详情" + result.getRuleResultMessage(),
-					StockInstPassEvent.builder().fundCode(cmd.getFundCode()).stockInstInfo(cmd.getStockInstInfo())
-							.riskResult(result.getRuleResultMessage()).build())
+			return ActReturn.builder().retCode(RetCode.SUCCESS)
+					.retMessage("指令创建成功,因子详情" + result.getRuleResultMessage())
+					.event(StockInstPassEvent.builder().fundCode(cmd.getFundCode())
+							.stockInstInfo(cmd.getStockInstInfo()).riskResult(result.getRuleResultMessage()).build())
 					.build();
 		}
 	}
@@ -144,7 +144,7 @@ public class FundAggregate implements Serializable {
 			}
 			position.addTransitQty(stockInstInfo.getQty());
 		}
-	    failInstNumber++;
+		failInstNumber++;
 	}
 
 	/**
@@ -154,8 +154,8 @@ public class FundAggregate implements Serializable {
 	 */
 	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
 	public ActReturn act(StockExecutionCmd cmd) {
-		return ActReturn.builder(RetCode.SUCCESS, "成交处理成功", StockExecutionEvent.builder().fundCode(cmd.getFundCode())
-				.stockExecutionInfo(cmd.getStockExecutionInfo()).build()).build();
+		return ActReturn.builder().retCode(RetCode.SUCCESS).retMessage("成交处理成功").event(StockExecutionEvent.builder()
+				.fundCode(cmd.getFundCode()).stockExecutionInfo(cmd.getStockExecutionInfo()).build()).build();
 	}
 
 	/**
