@@ -7,11 +7,11 @@
 
 |Part|介绍|分支名|视频|
 |---|---|---|---|
-|1|背景和业务介绍|[part-1](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)|todo|
-|2|phoenix工程搭建|[part-2](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)|todo|
-|3|领域设计与消息定义|[part-3](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)|todo|
-|4|领域对象定义|[part-4](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)|todo|
-|5|客户端代码编写|[part-5](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)|todo|
+|1|背景和业务介绍|[part-1](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)|[链接]()|
+|2|phoenix工程搭建|[part-2](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)|[链接]()|
+|3|领域设计与消息定义|[part-3](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)|[链接]()|
+|4|领域对象定义|[part-4](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)|[链接]()|
+|5|客户端代码编写|[part-5](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)|[链接]()|
 
 如果您在学习过程中有遇到问题或者对phoenix感兴趣，请联系：`baodi.shi@iquantex.com`
 
