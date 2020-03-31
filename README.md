@@ -7,11 +7,11 @@
 
 |Part|介绍|分支名|视频|
 |---|---|---|---|
-|1|背景和业务介绍|[part-1](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAghz2bjaxAFcAvQb2AMg)|
-|2|phoenix工程搭建|[part-2](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAgBeAo8l7AFcAvQb2AMg)|
-|3|领域设计与消息定义|[part-3](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAg7v50ye5AFcAvQb2AMg)|
-|4|领域对象定义|[part-4](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAg9Xf1e2JAFcAvQb2AMg)|
-|5|客户端代码编写|[part-5](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAgHWqySoDAFcAvQb2AMg)|
+|1|背景和业务介绍|[part-1](https://github.com/PhoenixIQ/trade-risk/tree/part-1)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAghz2bjaxAFcAvQb2AMg)|
+|2|phoenix工程搭建|[part-2](https://github.com/PhoenixIQ/trade-risk/tree/part-2)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAgBeAo8l7AFcAvQb2AMg)|
+|3|领域设计与消息定义|[part-3](https://github.com/PhoenixIQ/trade-risk/tree/part-3)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAg7v50ye5AFcAvQb2AMg)|
+|4|领域对象定义|[part-4](https://github.com/PhoenixIQ/trade-risk/tree/part-4)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAg9Xf1e2JAFcAvQb2AMg)|
+|5|客户端代码编写|[part-5](https://github.com/PhoenixIQ/trade-risk/tree/part-5)|[微盘下载](https://drive.weixin.qq.com/s?k=AOYAFwfjAAgHWqySoDAFcAvQb2AMg)|
 
 如果您在学习过程中有遇到问题或者对phoenix感兴趣，请联系：`baodi.shi@iquantex.com`
 
