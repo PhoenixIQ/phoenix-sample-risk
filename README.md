@@ -111,7 +111,7 @@ public class FundAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
+	@CommandHandler(aggregateRootId = "fundCode")
 	public ActReturn act(FundAssetsCmd cmd) {
 		return ActReturn
 				.builder(RetCode.SUCCESS, "产品创建成功",
@@ -133,7 +133,7 @@ public class FundAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
+	@CommandHandler(aggregateRootId = "fundCode")
 	public ActReturn act(StockInstCmd cmd) {
 
 		// 1. 检查风控
@@ -209,7 +209,7 @@ public class FundAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
+	@CommandHandler(aggregateRootId = "fundCode")
 	public ActReturn act(StockExecutionCmd cmd) {
 		return ActReturn.builder(RetCode.SUCCESS, "成交处理成功", StockExecutionEvent.builder().fundCode(cmd.getFundCode())
 				.stockExecutionInfo(cmd.getStockExecutionInfo()).build()).build();
