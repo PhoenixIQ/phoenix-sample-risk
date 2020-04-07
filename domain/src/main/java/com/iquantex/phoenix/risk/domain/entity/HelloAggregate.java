@@ -1,7 +1,7 @@
 package com.iquantex.phoenix.risk.domain.entity;
 
 import com.iquantex.phoenix.risk.coreapi.Hello;
-import com.iquantex.phoenix.server.aggregate.entity.AggregateRootIdAnnotation;
+import com.iquantex.phoenix.server.aggregate.entity.CommandHandler;
 import com.iquantex.phoenix.server.aggregate.entity.EntityAggregateAnnotation;
 import com.iquantex.phoenix.server.aggregate.model.ActReturn;
 import com.iquantex.phoenix.server.aggregate.model.RetCode;
@@ -28,7 +28,7 @@ public class HelloAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "helloId")
+	@CommandHandler(aggregateRootId = "helloId")
 	public ActReturn act(Hello.HelloCmd cmd) {
 		log.info("Hello World Phoenix...");
 		return ActReturn.builder().retCode(RetCode.SUCCESS).retMessage("success")
