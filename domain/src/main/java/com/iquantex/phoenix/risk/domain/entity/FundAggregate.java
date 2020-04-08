@@ -13,7 +13,7 @@ import com.iquantex.phoenix.risk.coreapi.inst.StockInstPassEvent;
 import com.iquantex.phoenix.risk.domain.service.RuleReq;
 import com.iquantex.phoenix.risk.domain.service.RuleResp;
 import com.iquantex.phoenix.risk.domain.service.RuleService;
-import com.iquantex.phoenix.server.aggregate.entity.AggregateRootIdAnnotation;
+import com.iquantex.phoenix.server.aggregate.entity.CommandHandler;
 import com.iquantex.phoenix.server.aggregate.entity.EntityAggregateAnnotation;
 import com.iquantex.phoenix.server.aggregate.model.ActReturn;
 import com.iquantex.phoenix.server.aggregate.model.RetCode;
@@ -54,7 +54,7 @@ public class FundAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
+	@CommandHandler(aggregateRootId = "fundCode")
 	public ActReturn act(FundAssetsCmd cmd) {
 		return ActReturn.builder().retCode(RetCode.SUCCESS).retMessage("产品创建成功")
 				.event(FundAssetsEvent.builder().fundCode(cmd.getFundCode()).netAssets(cmd.getNetAssets()).build())
@@ -75,7 +75,7 @@ public class FundAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
+	@CommandHandler(aggregateRootId = "fundCode")
 	public ActReturn act(StockInstCmd cmd) {
 
 		// 1. 检查风控
@@ -152,7 +152,7 @@ public class FundAggregate implements Serializable {
 	 * @param cmd
 	 * @return
 	 */
-	@AggregateRootIdAnnotation(aggregateRootId = "fundCode")
+	@CommandHandler(aggregateRootId = "fundCode")
 	public ActReturn act(StockExecutionCmd cmd) {
 		return ActReturn.builder().retCode(RetCode.SUCCESS).retMessage("成交处理成功").event(StockExecutionEvent.builder()
 				.fundCode(cmd.getFundCode()).stockExecutionInfo(cmd.getStockExecutionInfo()).build()).build();
