@@ -2,11 +2,13 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分为五篇文章介绍，本篇主要介绍如何搭建一个phoenix工程，以及工程内各个模块和包的介绍。
 
-- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
-- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
-- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
-- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
-- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
+|Part|介绍|分支名|视频|
+|---|---|---|---|
+|1|背景和业务介绍|[part-1](https://github.com/PhoenixIQ/trade-risk/tree/part-1)|[视频](https://www.bilibili.com/video/BV1ZA41187ex)|
+|2|phoenix工程搭建|[part-2](https://github.com/PhoenixIQ/trade-risk/tree/part-2)|[视频](https://www.bilibili.com/video/BV1jK411L7rA)|
+|3|领域设计与消息定义|[part-3](https://github.com/PhoenixIQ/trade-risk/tree/part-3)|[视频](https://www.bilibili.com/video/BV1UA41187pE)|
+|4|领域对象定义|[part-4](https://github.com/PhoenixIQ/trade-risk/tree/part-4)|[视频](https://www.bilibili.com/video/BV1Si4y1b7v8)|
+|5|客户端代码编写|[part-5](https://github.com/PhoenixIQ/trade-risk/tree/part-5)|[视频](https://www.bilibili.com/video/BV1cz411b75e)|
 
 ## 工程搭建
 搭建Phoenix工程十分容易，可以使用下述命令即可生成一个完整的phoenix的maven工程。其中`DarchetypeVersion`为phoenix的版本，`groupId`、`artifactId`、`version`为生成工程的定义。
@@ -147,3 +149,19 @@ INFO 80357 --- [t-dispatcher-17] [c.i.p.b.domain.entity.HelloAggregate       33]
 
 ## 结尾
 本篇演示了如何如何构建一个phoenix工程，并详细介绍了每个Module和每个包的定义。现在我们有了一个可运行的phoenix工程，下篇我们将使用该工程构建我们的风控案例。
+
+# License
+
+Copyright [C] iquantex inc. [https://www.iquantex.com/]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
