@@ -2,11 +2,13 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第四篇，该系列一共分为五篇文章介绍。本篇将根据第三篇提取的领域对象，补充完整`聚合根`、`实体`、`方法`等领域对象。
 
-- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
-- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
-- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
-- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
-- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
+|Part|介绍|分支名|视频|
+|---|---|---|---|
+|1|背景和业务介绍|[part-1](https://github.com/PhoenixIQ/trade-risk/tree/part-1)|[视频](https://www.bilibili.com/video/BV1ZA41187ex)|
+|2|phoenix工程搭建|[part-2](https://github.com/PhoenixIQ/trade-risk/tree/part-2)|[视频](https://www.bilibili.com/video/BV1jK411L7rA)|
+|3|领域设计与消息定义|[part-3](https://github.com/PhoenixIQ/trade-risk/tree/part-3)|[视频](https://www.bilibili.com/video/BV1UA41187pE)|
+|4|领域对象定义|[part-4](https://github.com/PhoenixIQ/trade-risk/tree/part-4)|[视频](https://www.bilibili.com/video/BV1Si4y1b7v8)|
+|5|客户端代码编写|[part-5](https://github.com/PhoenixIQ/trade-risk/tree/part-5)|[视频](https://www.bilibili.com/video/BV1cz411b75e)|
 
 上篇定义完了`命令`和`事件`，该篇主要定义下面领域对象
 
@@ -373,3 +375,19 @@ public class Rule {
 
 ## 结尾
 本文完整的编写了领域对象中的聚合根、实体、风控计算等逻辑，遵循DDD的设计思想使用Phoenix面向内存对象建模非常容易。到此为止，事中风控的基本代码逻辑都编写完毕，通过单元测试可以按期望测试业务逻辑。下文将进行简单的客户端封装，开发简单前端页面，使整个服务的完整度和体验更好。
+
+# License
+
+Copyright [C] iquantex inc. [https://www.iquantex.com/]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
