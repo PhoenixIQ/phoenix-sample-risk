@@ -2,11 +2,13 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第五篇，该系列一共分为五篇文章介绍。前面几篇已经完成了事中风控的服务端开发，本篇将增加客户端调用和前端页面使完整程度更高。为了方便，将客户端也集成入该服务当中。
 
-- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
-- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
-- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
-- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
-- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
+|Part|介绍|分支名|视频|
+|---|---|---|---|
+|1|背景和业务介绍|[part-1](https://github.com/PhoenixIQ/trade-risk/tree/part-1)|[视频](https://www.bilibili.com/video/BV1ZA41187ex)|
+|2|phoenix工程搭建|[part-2](https://github.com/PhoenixIQ/trade-risk/tree/part-2)|[视频](https://www.bilibili.com/video/BV1jK411L7rA)|
+|3|领域设计与消息定义|[part-3](https://github.com/PhoenixIQ/trade-risk/tree/part-3)|[视频](https://www.bilibili.com/video/BV1UA41187pE)|
+|4|领域对象定义|[part-4](https://github.com/PhoenixIQ/trade-risk/tree/part-4)|[视频](https://www.bilibili.com/video/BV1Si4y1b7v8)|
+|5|客户端代码编写|[part-5](https://github.com/PhoenixIQ/trade-risk/tree/part-5)|[视频](https://www.bilibili.com/video/BV1cz411b75e)|
 
 
 ## 增加路由
@@ -77,3 +79,19 @@ public class TradeController {
 
 ## 结尾
 本篇以事中风控的客户端为例，展示了Phoenix的客户端编写方式。到此为止，整个`Phoenix案例-高性能事中风控微服务`讲解完毕。可以看出来Phoenix作为微服务框架加上DDD的设计思想可以很好的拆分业务，再通过面向内存的编程模型很容易落地实现。
+
+# License
+
+Copyright [C] iquantex inc. [https://www.iquantex.com/]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
