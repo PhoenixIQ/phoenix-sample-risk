@@ -2,11 +2,13 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第三篇，该系列一共分为五篇文章介绍。本篇将使用领域驱动设计方法提取领域对象，同时定义完领域消息。
 
-- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
-- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
-- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
-- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
-- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
+|Part|介绍|分支名|视频|
+|---|---|---|---|
+|1|背景和业务介绍|[part-1](https://github.com/PhoenixIQ/trade-risk/tree/part-1)|[视频](https://www.bilibili.com/video/BV1ZA41187ex)|
+|2|phoenix工程搭建|[part-2](https://github.com/PhoenixIQ/trade-risk/tree/part-2)|[视频](https://www.bilibili.com/video/BV1jK411L7rA)|
+|3|领域设计与消息定义|[part-3](https://github.com/PhoenixIQ/trade-risk/tree/part-3)|[视频](https://www.bilibili.com/video/BV1UA41187pE)|
+|4|领域对象定义|[part-4](https://github.com/PhoenixIQ/trade-risk/tree/part-4)|[视频](https://www.bilibili.com/video/BV1Si4y1b7v8)|
+|5|客户端代码编写|[part-5](https://github.com/PhoenixIQ/trade-risk/tree/part-5)|[视频](https://www.bilibili.com/video/BV1cz411b75e)|
 
 
 ## 领域设计
@@ -221,3 +223,19 @@ public class FundAssetsEvent implements Serializable {
 
 ## 结尾
 本文通过领域驱动设计的方式提取出了领域对象，同时定义了领域的消息。下篇讲述怎样使用phoenix开发聚合根和实体。
+
+# License
+
+Copyright [C] iquantex inc. [https://www.iquantex.com/]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
