@@ -2,11 +2,13 @@
 ## 前言
 本篇是使用phoenix开发高性能事中风控服务系列第一篇，该系列一共分为五篇文章介绍，本篇主要讲述了背景，分析了业务场景，梳理清楚业务领域。
 
-- 第一篇：[背景和业务介绍](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-1)
-- 第二篇：[phoenix工程搭建](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-2)
-- 第三篇：[领域设计与消息定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-3)
-- 第四篇：[领域对象定义](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-4)
-- 第五篇：[客户端代码编写](https://gitlab.iquantex.com/phoenix-public/phoenix-risk/tree/part-5)
+|Part|介绍|分支名|视频|
+|---|---|---|---|
+|1|背景和业务介绍|[part-1](https://github.com/PhoenixIQ/trade-risk/tree/part-1)|[视频](https://www.bilibili.com/video/BV1ZA41187ex)|
+|2|phoenix工程搭建|[part-2](https://github.com/PhoenixIQ/trade-risk/tree/part-2)|[视频](https://www.bilibili.com/video/BV1jK411L7rA)|
+|3|领域设计与消息定义|[part-3](https://github.com/PhoenixIQ/trade-risk/tree/part-3)|[视频](https://www.bilibili.com/video/BV1UA41187pE)|
+|4|领域对象定义|[part-4](https://github.com/PhoenixIQ/trade-risk/tree/part-4)|[视频](https://www.bilibili.com/video/BV1Si4y1b7v8)|
+|5|客户端代码编写|[part-5](https://github.com/PhoenixIQ/trade-risk/tree/part-5)|[视频](https://www.bilibili.com/video/BV1cz411b75e)|
 
 ## 背景描述
 
@@ -45,4 +47,4 @@ Phoenix是内存编程框架，很适合解决此类问题，下面选用`投资
 
 ## 结尾
 
-本篇从背景介绍和业务分析讲述了事中风控微服务的背景，下面将从pheonix服务搭建开始，一步一步完善事中风控微服务。
+本篇从背景介绍和业务分析讲述了事中风控微服务的背景，下面将从phoenix服务搭建开始，一步一步完善事中风控微服务。
